@@ -1,10 +1,14 @@
 name: learn-github-actions
 on: [push]
 jobs:
+  # ‡”Ô‚ÉÀs‚³‚ê‚é
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
       - run: echo "this is pen"
+    steps:
+      - run: echo "next steps"
+  # •À—ñ‚ÅÀs‚³‚ê‚é
   hoge: 
     runs-on: ubuntu-latest
     steps: 
