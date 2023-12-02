@@ -6,7 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "this is pen"
-    steps:
       - run: echo "next steps"
   # •À—ñ‚ÅÀs‚³‚ê‚é
   hoge: 
