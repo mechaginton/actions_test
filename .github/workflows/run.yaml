@@ -5,3 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "this is pen"
+hoge: 
+  runs-on: ubuntu-latest
+  steps: 
+    - name: Hoge Step
+      run: echo Hoge World
