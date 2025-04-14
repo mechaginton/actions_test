@@ -18,6 +18,12 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Pull subtree from external repo
+      - name: Prepare subtree directory
         run: |
-          git subtree pull --prefix=subtree https://github.com/mechaginton/practice.git main --squash
+          if [ ! -d subtree ]; then
+            echo "First time setup: adding subtree"
+            git subtree add --prefix=subtree https://github.com/mechaginton/practice.git main --squash
+          else
+            echo "Subtree exists: pulling latest"
+            git subtree pull --prefix=subtree https://github.com/mechaginton/practice.git main --squash
+          fi
