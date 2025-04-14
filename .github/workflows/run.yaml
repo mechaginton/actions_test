@@ -22,8 +22,8 @@ jobs:
         run: |
           if [ ! -d subtree ]; then
             echo "First time setup: adding subtree"
-            git subtree add --prefix=subtree https://github.com/mechaginton/practice.git main --squash
+            git subtree add --prefix=subtree https://github.com/mechaginton/practice.git master --squash
           else
             echo "Subtree exists: pulling latest"
-            git subtree pull --prefix=subtree https://github.com/mechaginton/practice.git main --squash
+            git subtree pull --prefix=subtree https://github.com/mechaginton/practice.git master --squash
           fi
