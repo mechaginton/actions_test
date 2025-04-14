@@ -1,15 +1,23 @@
-name: learn-github-actions
-on: [push]
+name: Git Subtree Pull Test
+
+on:
+  workflow_dispatch:  # ???????
+
 jobs:
-  # èáî‘Ç…é¿çsÇ≥ÇÍÇÈ
-  check-bats-version:
+  subtree-pull:
     runs-on: ubuntu-latest
+
     steps:
-      - run: echo "this is pen"
-      - run: echo "next steps"
-  # ï¿óÒÇ≈é¿çsÇ≥ÇÍÇÈ
-  hoge: 
-    runs-on: ubuntu-latest
-    steps: 
-      - name: Hoge Step
-        run: echo Hoge World
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # subtree ??????????
+
+      - name: Set up Git user 
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Pull subtree from external repo
+        run: |
+          git subtree pull --prefix=subtree https://github.com/mechaginton/practice.git main --squash
