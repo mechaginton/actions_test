@@ -20,6 +20,7 @@ jobs:
 
       - name: Prepare subtree directory
         run: |
+          git remote -v
           if [ ! -d aaa ]; then
             git remote add subtree-test https://github.com/mechaginton/practice.git
             echo "First time setup: adding subtree"
