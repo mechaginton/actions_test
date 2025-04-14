@@ -21,9 +21,10 @@ jobs:
       - name: Prepare subtree directory
         run: |
           if [ ! -d subtree ]; then
+            git remote add subtree-test https://github.com/mechaginton/practice.git
             echo "First time setup: adding subtree"
-            git subtree add --prefix=subtree https://github.com/mechaginton/practice.git master --squash
+            git subtree add --prefix=aaa --squash subtree-test master
           else
             echo "Subtree exists: pulling latest"
-            git subtree pull --prefix=subtree https://github.com/mechaginton/practice.git master --squash
+            git subtree pull --prefix=aaa --squash subtree-test master
           fi
